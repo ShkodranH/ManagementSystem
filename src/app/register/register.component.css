@@ -1,0 +1,66 @@
+.form {
+    width: clamp(300px, 40%, 600px);
+    margin: 50px auto;
+    border-radius: 5px;
+    box-shadow: 0 0 25px #ddd;
+    padding: 20px;
+    background-color: white;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+h2 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+label,
+input {
+    font-size: 16px;
+}
+label {
+    font-weight: 500;
+}
+input:not([type=radio]) {
+    padding: 5px;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #777;
+    margin-bottom: 15px;
+}
+input:not([type=radio]):focus {
+    /* border-bottom-width: calc(1px + 1px); */
+    border-bottom-color: dodgerblue;
+    box-shadow: 0 1px dodgerblue;
+    /* padding-bottom: calc(5px - 1px); */
+}
+input::placeholder {
+    color: #aaa;
+}
+.radio-btn {
+    padding: 5px 0;
+}
+.radio-btn label {
+    font-weight: 400;
+}
+input[type=radio] {
+    margin: 5px;
+}
+
+input[type=submit] {
+    font-size: 20px;
+    border: none;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    background-color: dodgerblue;
+    color: white;
+}
+.error-msg {
+    font-size: 13px;
+    font-weight: 700;
+    color: #ff5454;
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
