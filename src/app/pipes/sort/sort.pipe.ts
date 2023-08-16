@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { IUser } from '../interfaces-enums/iuser';
+import { IUser } from '../../interfaces-enums/iuser';
 
 @Pipe({
   name: 'sort'

@@ -1,6 +1,6 @@
 .table {
     width: clamp(800px, 90%, 1600px);
-    margin: 50px auto;
+    margin: 0 auto 50px auto;
     border-radius: 5px;
     box-shadow: 0 0 25px #ddd;
     padding: 20px;
@@ -36,5 +36,5 @@ td button {
     border-radius: 4px;
     padding: 5px;
     color: #fff;
-    background-color: #ff6e6e;
+    background-color: #ff5454;
 }
