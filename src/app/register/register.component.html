@@ -1,32 +1,58 @@
 <div class="form">
-    <h2>Welcome !</h2>
-    <form action="#">
+    <h2>Welcome {{name}}!</h2>
+    <form (ngSubmit)="submitForm()" [formGroup]="registerForm">
         <label for="username">Username</label>
-        <input type="text" id="username" placeholder="Enter username">
-        <span class="error-msg">The input field is required</span>
+        <input type="text" id="username" placeholder="Enter username" formControlName="username" [(ngModel)]="name">
+        <ng-container *ngIf="registerForm.get('username').invalid && (registerForm.get('username').touched || registerForm.get('username').dirty)">
+            <span class="error-msg" *ngIf="registerForm.get('username').hasError('required'); else usernameMsg">The Username field is required</span>
+            <ng-template #usernameMsg><span class="error-msg">Username should be 3 to 30 alpha-numeric characters</span></ng-template>
+        </ng-container>
+        <span class="error-msg" *ngIf="registerForm.hasError('checkUsername')">This username is taken</span>
+
 
         <label for="email">Email</label>
-        <input type="email" id="email" placeholder="someone@example.com">
-        
+        <input type="email" id="email" placeholder="someone@example.com" formControlName="email">
+        <ng-container *ngIf="registerForm.get('email').invalid && (registerForm.get('email').touched || registerForm.get('email').dirty)">
+            <span class="error-msg" *ngIf="registerForm.get('email').hasError('required'); else emailMsg">The Email address field is required</span>
+            <ng-template #emailMsg><span class="error-msg">Enter a valid email address</span></ng-template>
+        </ng-container>
+        <span class="error-msg" *ngIf="registerForm.hasError('checkEmail')">This email alredy has an account</span>
+
 
         <label for="password">Password</label>
-        <input type="password" id="password" placeholder="Enter password">
+        <input type="password" id="password" placeholder="Enter password" formControlName="password">
+        <ng-container *ngIf="registerForm.get('password').invalid && (registerForm.get('password').touched || registerForm.get('password').dirty)">
+            <span class="error-msg" *ngIf="registerForm.get('password').hasError('required'); else passwordMsg">The Password field is required</span>
+            <ng-template #passwordMsg><span class="error-msg">Password should be a mix of uppercase/lowercase letters and numbers</span></ng-template>
+        </ng-container>
 
         <label for="confirm-pass">Confirm Password</label>
-        <input type="password" id="confirm-pass" placeholder="Confirm password">
+        <input type="password" id="confirm-pass" placeholder="Confirm password" formControlName="confirmPass">
+        <ng-container *ngIf="registerForm.get('confirmPass').invalid && (registerForm.get('confirmPass').touched || registerForm.get('confirmPass').dirty)">
+            <span class="error-msg" *ngIf="registerForm.get('confirmPass').hasError('required'); else confirmMsg">The Confirm Password field is required</span>
+            <ng-template #confirmMsg><span class="error-msg">Password should be a mix of uppercase/lowercase letters and numbers</span></ng-template>
+        </ng-container>
+        <span class="error-msg" *ngIf="registerForm.hasError('checkPassword') && registerForm.get('confirmPass').valid">The Passwords should match</span>
 
         <label for="credit-card">Credit Card Number</label>
-        <input type="text" id="credit-card" placeholder="xxxx-xxxx-xxxx-xxxx">
+        <input type="text" id="credit-card" placeholder="xxxx-xxxx-xxxx-xxxx" formControlName="creditCard">
+        <ng-container *ngIf="registerForm.get('creditCard').invalid && (registerForm.get('creditCard').touched || registerForm.get('creditCard').dirty)">
+            <span class="error-msg" *ngIf="registerForm.get('creditCard').hasError('required'); else cardMsg">The Credit Card field is required</span>
+            <ng-template #cardMsg><span class="error-msg">Card Number should be a 16 digit number</span></ng-template>
+        </ng-container>
 
         <label for="job-position">Job Position</label>
         <div class="radio-btn">
-            <input type="radio" id="frontend" name="job-position" value="frontend">
-            <label for="front-end">Front-End</label><br>
-            <input type="radio" id="backend" name="job-position" value="backend">
+            <input type="radio" id="frontend" value="{{profession.FRONT}}" formControlName="profession">
+            <label for="frontend">Front-End</label><br>
+
+            <input type="radio" id="backend" value="{{profession.BACK}}" formControlName="profession">
             <label for="backend">Back-End</label><br>
-            <input type="radio" id="fullstack" name="job-position" value="fullstack">
-            <label for="fullstack">Full Stack</label><br>     
+
+            <input type="radio" id="fullstack" value="{{profession.FULL}}" formControlName="profession">
+            <label for="fullstack">Full Stack</label><br>
         </div>
+        <span class="error-msg" *ngIf="registerForm.get('profession').invalid && registerForm.get('profession').touched">The Job Position is required</span>
 
         <input type="submit" value="Register">
     </form>

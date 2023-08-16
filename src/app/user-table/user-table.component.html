@@ -9,14 +9,66 @@
             <th>Profession</th>
             <th>Action</th>
         </tr>
-        <tr *ngFor="let user of userInfo | sort">
-            <td>{{user.id}}</td>
-            <td>{{user.username}}</td>
-            <td>{{user.email}}</td>
-            <td>{{user.password}}</td>
-            <td>{{user.creditCard | dashes}}</td>
-            <td>{{user.profession}}</td>
-            <td><button (click)="deleteUser(user.id)">Delete</button></td>
+        <ng-container *ngFor="let user of userInfo | sort">
+            <tr *ngIf="user.profession === 'Front-End'">
+                <td>{{user.id}}</td>
+                <td>{{user.username}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.password | encrypt}}</td>
+                <td>{{user.creditCard | dashes}}</td>
+                <td>{{user.profession}}</td>
+                <td><button (click)="deleteUser(user.id)">Delete</button></td>
+            </tr>
+        </ng-container>
+    </table>
+</div>
+
+<div class="table">
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Password</th>
+            <th>Credit Card</th>
+            <th>Profession</th>
+            <th>Action</th>
         </tr>
+        <ng-container *ngFor="let user of userInfo | sort">
+            <tr *ngIf="user.profession === 'Back-End'">
+                <td>{{user.id}}</td>
+                <td>{{user.username}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.password}}</td>
+                <td>{{user.creditCard | dashes}}</td>
+                <td>{{user.profession}}</td>
+                <td><button (click)="deleteUser(user.id)">Delete</button></td>
+            </tr>
+        </ng-container>
+    </table>
+</div>
+
+<div class="table">
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Password</th>
+            <th>Credit Card</th>
+            <th>Profession</th>
+            <th>Action</th>
+        </tr>
+        <ng-container *ngFor="let user of userInfo | sort">
+            <tr *ngIf="user.profession === 'Full Stack'">
+                <td>{{user.id}}</td>
+                <td>{{user.username}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.password}}</td>
+                <td>{{user.creditCard | dashes}}</td>
+                <td>{{user.profession}}</td>
+                <td><button (click)="deleteUser(user.id)">Delete</button></td>
+            </tr>
+        </ng-container>
     </table>
 </div>

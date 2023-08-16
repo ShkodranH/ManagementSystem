@@ -1,6 +1,6 @@
 .form {
-    width: clamp(300px, 40%, 600px);
-    margin: 50px auto;
+    width: clamp(300px, 90%, 600px);
+    margin: 0 auto;
     border-radius: 5px;
     box-shadow: 0 0 25px #ddd;
     padding: 20px;
@@ -40,12 +40,14 @@ input::placeholder {
 }
 .radio-btn {
     padding: 5px 0;
+    margin-bottom: 5px;
 }
 .radio-btn label {
     font-weight: 400;
 }
 input[type=radio] {
     margin: 5px;
+    accent-color: dodgerblue;
 }
 
 input[type=submit] {
