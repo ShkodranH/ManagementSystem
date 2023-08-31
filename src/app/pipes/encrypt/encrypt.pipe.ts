@@ -5,7 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class EncryptPipe implements PipeTransform {
 
-  transform(value: string) {
+  transform(value: string): string {
     let symbols = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
     let replace = '(@)+#-[$]*%/{&}^!_=.'
     let result = '';

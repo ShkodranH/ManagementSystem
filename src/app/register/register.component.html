@@ -41,19 +41,40 @@
             <ng-template #cardMsg><span class="error-msg">Card Number should be a 16 digit number</span></ng-template>
         </ng-container>
 
-        <label for="job-position">Job Position</label>
+        <label for="gender">Gender</label>
         <div class="radio-btn">
-            <input type="radio" id="frontend" value="{{profession.FRONT}}" formControlName="profession">
-            <label for="frontend">Front-End</label><br>
-
-            <input type="radio" id="backend" value="{{profession.BACK}}" formControlName="profession">
-            <label for="backend">Back-End</label><br>
-
-            <input type="radio" id="fullstack" value="{{profession.FULL}}" formControlName="profession">
-            <label for="fullstack">Full Stack</label><br>
+            <input type="radio" id="male" value="{{gender.MALE}}" formControlName="gender">
+            <label for="male">Male</label>
+            <input type="radio" id="female" value="{{gender.FEMALE}}" formControlName="gender">
+            <label for="female">Female</label><br>
         </div>
-        <span class="error-msg" *ngIf="registerForm.get('profession').invalid && registerForm.get('profession').touched">The Job Position is required</span>
+        <span class="error-msg" *ngIf="registerForm.get('gender').invalid && registerForm.get('gender').touched">Select your Gender</span>
 
+        <label for="role">Role</label>
+        <div class="radio-btn" (change)="selectedRole()">
+            <input type="radio" id="user" value="{{role.USER}}" formControlName="role">
+            <label for="user">User</label>
+            <input type="radio" id="admin" value="{{role.ADMIN}}" formControlName="role">
+            <label for="admin">Admin</label><br>
+        </div>
+        <span class="error-msg" *ngIf="registerForm.get('role').invalid && registerForm.get('role').touched">Select your Role</span>
+        
+        <ng-container *ngIf="registerForm.get('role').value !== role.ADMIN">
+            <label for="profession">Profession</label>
+            <div class="radio-btn">
+                <input type="radio" id="frontend" value="{{profession.FRONT}}" formControlName="profession">
+                <label for="frontend">Front-End</label>   
+                <input type="radio" id="backend" value="{{profession.BACK}}" formControlName="profession">
+                <label for="backend">Back-End</label>
+                <input type="radio" id="fullstack" value="{{profession.FULL}}" formControlName="profession">
+                <label for="fullstack">Full Stack</label><br>
+            </div>
+            <span class="error-msg" *ngIf="registerForm.get('profession').invalid && registerForm.get('profession').touched">Select your Profession</span>    
+        </ng-container>
+        
         <input type="submit" value="Register">
     </form>
+</div>
+<div class="loginLink">
+    <p>Already have an account? <a routerLink="../login">Login</a></p>
 </div>

@@ -1,5 +1,5 @@
 .form {
-    width: clamp(300px, 90%, 600px);
+    width: clamp(300px, 90%, 500px);
     margin: 50px auto;
     border-radius: 5px;
     box-shadow: 0 0 25px #ddd;
@@ -13,7 +13,7 @@ form {
 }
 h2 {
     text-align: center;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 label,
 input {
@@ -22,40 +22,26 @@ input {
 label {
     font-weight: 500;
 }
-input:not([type=radio]) {
+input {
     padding: 5px;
     outline: none;
     border: none;
     border-bottom: 1px solid #777;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
-input:not([type=radio]):focus {
+input:focus {
     border-bottom-color: dodgerblue;
     box-shadow: 0 1px dodgerblue;
 }
 input::placeholder {
     color: #aaa;
 }
-.radio-btn {
-    padding: 5px 0;
-    margin-bottom: 5px;
-}
-.radio-btn label {
-    font-weight: 400;
-    display: inline-block;
-    min-width: 80px;
-    margin-right: 10px;
-}
-input[type=radio] {
-    margin: 5px;
-    accent-color: dodgerblue;
-}
 
 input[type=submit] {
     font-size: 20px;
     border: none;
     padding: 10px;
-    margin-top: 10px;
+    margin-top: 20px;
     border-radius: 5px;
     background-color: dodgerblue;
     color: white;
@@ -64,14 +50,18 @@ input[type=submit] {
     font-size: 13px;
     font-weight: 700;
     color: #ff5454;
-    margin-top: -10px;
-    margin-bottom: 10px;
+    margin-top: -15px;
+    margin-bottom: 15px;
 }
-.loginLink {
+.error-msg:last-child {
+    text-align: center;
+    margin-top: -10px;
+}
+.registerLink {
     text-align: center;
     margin: -20px 0 50px 0;
 }
-.loginLink a {
+.registerLink a {
     text-decoration: none;
     font-weight: bold;
     color: #000;

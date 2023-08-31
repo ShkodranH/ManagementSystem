@@ -1,0 +1,44 @@
+.profile {
+    position: relative;
+    display: grid;
+    align-items: center;
+    grid-template-columns: 2fr 3fr;
+    gap: 40px;
+    width: clamp(800px, 90%, 1600px);
+    min-height: calc(100vh - 100px);
+    margin: 50px auto;
+    border-radius: 5px;
+    box-shadow: 0 0 25px #ddd;
+    padding: 40px;
+    background-color: white;
+}
+.image {
+    display: flex;
+}
+.image img {
+    margin-left: auto;
+    display: block;
+    width: 90%;
+    max-width: 300px;
+    aspect-ratio: 1 / 1;
+}
+.data div {
+    display: flex;
+    gap: 20px;
+    padding:  15px;
+    font-size: 16px;
+}
+.data div p {
+    width: 150px;
+    text-align: right;
+}
+.data div h4 {
+    font-size: 18px;
+}
+a {
+    position: absolute;
+    top: 30px;
+    left: 50px;
+    text-decoration: none;
+    font-size: 20px;
+}
