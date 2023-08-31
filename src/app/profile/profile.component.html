@@ -1,0 +1,37 @@
+<div class="profile">
+    <div class="image">
+        <img [src]="generateAvatar(userData.gender)" alt="profile photo">
+    </div>
+    <div class="data">
+        <div class="username">
+            <p>Username:</p>
+            <h4>{{userData.username}}</h4>
+        </div>
+        <div class="gender">
+            <p>Gender:</p>
+            <h4>{{userData.gender}}</h4>
+        </div>
+        <div class="email">
+            <p>Email:</p>
+            <h4>{{userData.email}}</h4>
+        </div>
+        <div class="password">
+            <p>Password:</p>
+            <h4>{{userData.password | encrypt}}</h4>
+        </div>
+        <div class="creditcard">
+            <p>Credit Card:</p>
+            <h4>{{userData.creditCard | dashes}}</h4>
+        </div>
+        <ng-container *ngIf="userData.role === role.USER">
+            <div class="profession">
+                <p>Profession:</p>
+                <h4>{{userData.profession}}</h4>
+            </div>
+        </ng-container>
+    </div>
+
+    <ng-container *ngIf="userService.currentUser.role === role.ADMIN">
+        <a routerLink="../users">&#x2aa1; User Table</a>
+    </ng-container>
+</div>

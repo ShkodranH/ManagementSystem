@@ -1,12 +1,12 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { IUser } from '../../interfaces-enums/iuser';
+import { IUser } from '../../users.config';
 
 @Pipe({
   name: 'sort'
 })
 export class SortPipe implements PipeTransform {
 
-  transform(value: IUser[], direction: string = 'asc', column: string = 'username') {
+  transform(value: IUser[], direction: string = 'asc', column: string = 'username'): IUser[] {
     if(direction === 'asc')
       return value.sort((x, y) => x[column].localeCompare(y[column]));
     else if(direction === 'desc')

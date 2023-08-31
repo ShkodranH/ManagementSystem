@@ -1,0 +1,18 @@
+<div class="form">
+    <h2>Welcome back!</h2>
+    <form (ngSubmit)="submitForm()" [formGroup]="loginForm">
+        <label for="usernameOrEmail">Username or Email</label>
+        <input type="text" id="usernameOrEmail" placeholder="Enter Username or Email address" formControlName="usernameOrEmail">
+        <span class="error-msg" *ngIf="loginForm.get('usernameOrEmail').invalid && (loginForm.get('usernameOrEmail').touched || loginForm.get('usernameOrEmail').dirty)">Please enter Your Username or Email</span>
+        
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter Password" formControlName="password">
+        <span class="error-msg" *ngIf="loginForm.get('password').invalid && (loginForm.get('password').touched || loginForm.get('password').dirty)">The Password field is required</span>
+        
+        <input type="submit" value="Login">
+        <span class="error-msg" *ngIf="isLogin !== null">This account doesn't exist in our database</span>
+    </form>
+</div>
+<div class="registerLink">
+    <p>Dont't have an account? <a routerLink="../register">Register</a></p>
+</div>
